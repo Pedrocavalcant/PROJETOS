@@ -20,7 +20,7 @@
 
             h1{
                 color: transparent;
-                animation: cliqueAqui 3.5s forwards;
+                animation: cliqueAqui 4s 2 forwards;
                 width: 14ch;
                 white-space: nowrap;
                 border-right: 5px solid white;
@@ -97,6 +97,21 @@
             background-color: white;
             color: black;
             box-shadow: 0 0 20px black, 0 0 40px white
+        }
+        #play{
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            position: absolute;
+            top: 51.1%;
+            left: 47.8%;
+            transform:  rotate(90deg);
+            clip-path: polygon(50% 5%, 95% 95%, 5% 95%);
+            border-radius: 10px;
+            transition: 0.5s background-color;
+        }
+        #play:hover{
+            background-color: black;
         }
     </style>
 </head>
