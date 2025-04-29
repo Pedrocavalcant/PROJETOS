@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Efeito Neon</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-weight: bold;
+        }
+        p{
+            color: orangered;
+            font-size: 2rem;
+            animation: neonanimation 4s 1 forwards;
+            overflow: hidden;border-left: 1px solid orangered;
+            box-shadow: 0 0 2px orangered;
+            white-space: nowrap;
+        }
+        @keyframes neonanimation{
+            from{
+                width: 0ch;
+                text-shadow: 0 0 1px white;
+                filter: drop-shadow(0 0 5px orangered);
+            }
+            to{
+                width: 13ch;
+                text-shadow: 0 0 10px orangered;
+                filter: drop-shadow(0 0 10px orangered);
+                box-shadow: 0 0 5px orangered;
+            }
+        }
+    </style>
+</head>
+<body>
+    <p>BEM-VINDO!</p>
+</body>
+</html>
