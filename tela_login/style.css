@@ -108,3 +108,13 @@ body{
 .register-link p a:hover{
     text-decoration: underline;
 }
+
+@media(max-width:450px){
+    .wrapper{
+        width: 350px;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
