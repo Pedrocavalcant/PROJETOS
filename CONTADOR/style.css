@@ -1,0 +1,55 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: salmon;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5rem;
+}
+div{
+    border-right: 2px solid black;
+    animation: iniciocont 3s 1 forwards;
+    overflow: hidden;
+    white-space: nowrap;
+}
+@keyframes iniciocont{
+    from{
+        width: 0ch;
+    }
+    to{
+        width: 10ch;
+    }
+}
+#valorContador{
+    font-weight: bold;
+}
+button{
+    width: 56px;
+    height: 30px;
+    background-color: black;
+    color: salmon;
+    transition: all 0.8s;
+    font-weight: bolder;
+    font-size: 1.5rem;
+    border-radius: 10px;
+}
+button:hover{
+    background-color: salmon;
+    color: black;
+    cursor: pointer;
+}
+
+@media(max-width: 450px){
+    div{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
