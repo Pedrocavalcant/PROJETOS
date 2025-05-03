@@ -15,10 +15,15 @@
             color: white;
             display: flex;
             height: 100vh;
+            flex-direction: column;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        main{
+            display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            font-family: Arial, Helvetica, sans-serif;
+            height: 100vh;
         }
         div{
             font-size: 1.3rem;
@@ -29,7 +34,7 @@
         }
         button{
             height: 35px;
-            width: 50px;
+            width: 60px;
             font-size: 1.6rem;
             font-weight: bold;
             cursor: pointer;
@@ -43,7 +48,7 @@
             }
             to{
                 height: 35px;
-                width: 50px;
+                width: 60px;
                 font-size: 1.6rem;
             }
         }
@@ -51,19 +56,33 @@
             color: rgb(198, 210, 30);
             text-shadow: 0 0 5px rgb(198, 210, 30), 0 0 10px rgb(198, 210, 30), 0 0 20px rgb(198, 210, 30) ;
             cursor: pointer;
+            text-align: center;
+            margin: 0 auto 20px auto;
+            background-color: black;
+            width: 200px;
+            border-radius: 10px;
+            padding: 5px;
+            transition: box-shadow 0.5s;
+        }
+        footer:hover{
+            box-shadow: 0 0 5px rgb(198, 210, 30), 0 0 10px rgb(198, 210, 30), 0 0 20px rgb(198, 210, 30);
         }
         
     </style>
 </head>
 <body>
-    <div>contagem de cliques: <span id="resposta">0</span></div>
-    <div class="buttons">
-        <button onclick="adicionarClique()">+</button>
-        <button onclick="removerClique()">-</button>
-        <button onclick="zerarContador()">&#x21bb;</button>
-        <button onclick="maisDez()">+10</button>
-        <button onclick="menosDez()">-10</button>
-    </div>
+    <main>
+        <div>contagem de cliques: <span id="resposta">0</span></div>
+        <div class="buttons">
+            <button onclick="maisUm()">+1</button>
+            <button onclick="menosUm()">-1</button>
+            <button onclick="maisDez()">+10</button>
+            <button onclick="menosDez()">-10</button>
+            <button onclick="maisCem()">+100</button>
+            <button onclick="menosCem()">-100</button>
+            <button onclick="zerarContador()">&#x21bb;</button>
+        </div>
+    </main>
 
     <footer id="rodape">&copy;pedrocavalcante</footer>
     <script>
@@ -78,12 +97,12 @@
             document.getElementById('resposta').textContent = contador
         }
 
-        const adicionarClique = () => {
+        const maisUm = () => {
             contador ++
             respostaTela()
         }
 
-        const removerClique = () => {
+        const menosUm = () => {
             if(contador > 0){
                 contador --
             respostaTela()
@@ -106,6 +125,20 @@
             if(contador > 10){
                 contador -= 10
                 respostaTela()
+            } else{
+                document.getElementById('resposta').textContent = 'Não permitido o contador ficar abaixo de 0'
+            }
+        }
+
+        const maisCem = () => {
+            contador += 100
+            respostaTela()
+        }
+
+        const menosCem = () => {
+            if(contador > 100){
+                contador -= 100
+            respostaTela()
             } else{
                 document.getElementById('resposta').textContent = 'Não permitido o contador ficar abaixo de 0'
             }
