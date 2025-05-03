@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: black;
+            color: white;
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+        h1{
+            border: 10px solid white;
+            border-radius: 50%;
+            padding: 20px;
+            cursor: pointer;
+            animation: surgirfundo 3s 1 forwards;
+        }
+        @keyframes surgirfundo{
+            from{width: 0ch;
+            border: 0px;
+            }
+            to{width: 8ch;
+            border: 10px solid white;}
+        }
+    </style>
+</head>
+<body>
+    <h1 id="titulo">Teste</h1>
+    <script>
+        let nome = window.prompt('Digite seu nome')
+        let titulo = document.getElementById('titulo')
+        titulo.addEventListener('click',function(){
+            titulo.textContent = `Olá ${nome}, tudo bem com você?`
+        })
+    </script>
+</body>
+</html>
