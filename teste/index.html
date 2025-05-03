@@ -11,37 +11,105 @@
             box-sizing: border-box;
         }
         body{
-            background-color: black;
+            background-color: rgb(117, 128, 28);
             color: white;
             display: flex;
             height: 100vh;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
+            font-family: Arial, Helvetica, sans-serif;
         }
-        h1{
-            border: 10px solid white;
-            border-radius: 50%;
-            padding: 20px;
+        div{
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+        #resposta{
+            font-weight: bold;
+        }
+        button{
+            height: 35px;
+            width: 50px;
+            font-size: 1.6rem;
+            font-weight: bold;
             cursor: pointer;
-            animation: surgirfundo 3s 1 forwards;
+            animation: surgirbotao 3s 1 forwards;
         }
-        @keyframes surgirfundo{
-            from{width: 0ch;
-            border: 0px;
+        @keyframes surgirbotao{
+            from{
+                height: 5px;
+                width: 5px;
+                font-size: 0rem;
             }
-            to{width: 8ch;
-            border: 10px solid white;}
+            to{
+                height: 35px;
+                width: 50px;
+                font-size: 1.6rem;
+            }
         }
+        footer{
+            color: rgb(198, 210, 30);
+            text-shadow: 0 0 5px rgb(198, 210, 30), 0 0 10px rgb(198, 210, 30), 0 0 20px rgb(198, 210, 30) ;
+            cursor: pointer;
+        }
+        
     </style>
 </head>
 <body>
-    <h1 id="titulo">Teste</h1>
+    <div>contagem de cliques: <span id="resposta">0</span></div>
+    <div class="buttons">
+        <button onclick="adicionarClique()">+</button>
+        <button onclick="removerClique()">-</button>
+        <button onclick="zerarContador()">&#x21bb;</button>
+        <button onclick="maisDez()">+10</button>
+        <button onclick="menosDez()">-10</button>
+    </div>
+
+    <footer id="rodape">&copy;pedrocavalcante</footer>
     <script>
-        let nome = window.prompt('Digite seu nome')
-        let titulo = document.getElementById('titulo')
-        titulo.addEventListener('click',function(){
-            titulo.textContent = `Olá ${nome}, tudo bem com você?`
+        let contador = 0
+        let rodape = document.getElementById('rodape')
+
+        rodape.addEventListener('click', function(){
+            location.href = 'https://github.com/Pedrocavalcant'
         })
+
+        const respostaTela = () => {
+            document.getElementById('resposta').textContent = contador
+        }
+
+        const adicionarClique = () => {
+            contador ++
+            respostaTela()
+        }
+
+        const removerClique = () => {
+            if(contador > 0){
+                contador --
+            respostaTela()
+            } else{
+                document.getElementById('resposta').textContent = 'Não permitido o contador ficar abaixo de 0'
+            }        
+        }
+
+        const zerarContador = () => {
+            contador = 0
+            respostaTela()
+        }
+
+        const maisDez = () => {
+            contador += 10
+            respostaTela()
+        }
+
+        const menosDez = () => {
+            if(contador > 10){
+                contador -= 10
+                respostaTela()
+            } else{
+                document.getElementById('resposta').textContent = 'Não permitido o contador ficar abaixo de 0'
+            }
+        }
     </script>
 </body>
 </html>
