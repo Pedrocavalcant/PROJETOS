@@ -25,9 +25,17 @@
             flex-direction: column;
             height: 100vh;
         }
-        div{
-            font-size: 1.3rem;
+        #enunciado{
+            font-size: 1.5rem;
             margin-bottom: 10px;
+        }
+        .buttons{
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
         }
         #resposta{
             font-weight: bold;
@@ -74,15 +82,15 @@
 </head>
 <body>
     <main>
-        <div>contagem de cliques: <span id="resposta">0</span></div>
+        <div id="enunciado">contagem de cliques: <span id="resposta">0</span></div>
         <div class="buttons">
-            <button onclick="maisUm()">+1</button>
-            <button onclick="menosUm()">-1</button>
-            <button onclick="maisDez()">+10</button>
-            <button onclick="menosDez()">-10</button>
-            <button onclick="maisCem()">+100</button>
-            <button onclick="menosCem()">-100</button>
-            <button onclick="zerarContador()">&#x21bb;</button>
+            <button onclick="alterarContador(1)" aria-label="Adicionar 1" title="+1">+1</button>
+            <button onclick="alterarContador(-1)" aria-label="Subtrair 1" title="-1">-1</button>
+            <button onclick="alterarContador(10)" aria-label="Adicionar 10" title="+10">+10</button>
+            <button onclick="alterarContador(-10)" aria-label="Subtrair 10" title="-10">-10</button>
+            <button onclick="alterarContador(100)" aria-label="Adicionar 100" title="+100">+100</button>
+            <button onclick="alterarContador(-100)" aria-label="Subtrair 100" title="-100">-100</button>
+            <button onclick="zerarContador()" aria-label="Zerar contador" title="0">&#x21bb;</button>
         </div>
     </main>
 
@@ -99,18 +107,13 @@
             document.getElementById('resposta').textContent = contador
         }
 
-        const maisUm = () => {
-            contador ++
+        const alterarContador = (valor) => {
+            if(contador + valor < 0){
+                document.getElementById('resposta').textContent = 'Nao e permitido o contador ficar abaixo de 0'
+                return
+            }
+            contador += valor
             respostaTela()
-        }
-
-        const menosUm = () => {
-            if(contador > 0){
-                contador --
-            respostaTela()
-            } else{
-                document.getElementById('resposta').textContent = 'Não permitido o contador ficar abaixo de 0'
-            }        
         }
 
         const zerarContador = () => {
@@ -118,33 +121,6 @@
             respostaTela()
         }
 
-        const maisDez = () => {
-            contador += 10
-            respostaTela()
-        }
-
-        const menosDez = () => {
-            if(contador > 10){
-                contador -= 10
-                respostaTela()
-            } else{
-                document.getElementById('resposta').textContent = 'Não permitido o contador ficar abaixo de 0'
-            }
-        }
-
-        const maisCem = () => {
-            contador += 100
-            respostaTela()
-        }
-
-        const menosCem = () => {
-            if(contador > 100){
-                contador -= 100
-            respostaTela()
-            } else{
-                document.getElementById('resposta').textContent = 'Não permitido o contador ficar abaixo de 0'
-            }
-        }
     </script>
 </body>
 </html>
