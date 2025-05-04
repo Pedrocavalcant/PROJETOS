@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JESUS Infinito</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .layer {
+      position: absolute;
+      font-size: 14rem;
+      font-weight: bold;
+      color: transparent;
+      -webkit-text-stroke: 2px red;
+      text-align: center;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(var(--scale));
+      opacity: var(--opacity);
+      filter: blur(var(--blur));
+    }
+
+    .container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      animation: pulse 4s infinite alternate ease-in-out;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      100% {
+        transform: scale(1.03);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Camadas de JESUS em profundidade -->
+    <!-- Quanto mais camadas, mais "infinito" parece -->
+    <div class="layer" style="--scale: 1; --opacity: 1; --blur: 0px;">JESUS</div>
+    <div class="layer" style="--scale: 0.95; --opacity: 0.8; --blur: 1px;">JESUS</div>
+    <div class="layer" style="--scale: 0.9; --opacity: 0.6; --blur: 2px;">JESUS</div>
+    <div class="layer" style="--scale: 0.85; --opacity: 0.4; --blur: 3px;">JESUS</div>
+    <div class="layer" style="--scale: 0.8; --opacity: 0.25; --blur: 4px;">JESUS</div>
+    <div class="layer" style="--scale: 0.75; --opacity: 0.15; --blur: 5px;">JESUS</div>
+    <div class="layer" style="--scale: 0.7; --opacity: 0.1; --blur: 6px;">JESUS</div>
+    <div class="layer" style="--scale: 0.65; --opacity: 0.05; --blur: 7px;">JESUS</div>
+  </div>
+</body>
+</html>
