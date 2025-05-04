@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        /*estilizacao global*/
         *{
             padding: 0;
             margin: 0;
@@ -17,6 +18,13 @@
             height: 100vh;
             flex-direction: column;
             font-family: Arial, Helvetica, sans-serif;
+        }
+        header{
+            display: flex;
+            justify-content: center;
+        }
+        header > h1{
+            margin-top: 75px;
         }
         main{
             display: flex;
@@ -43,7 +51,7 @@
         button{
             height: 35px;
             width: 60px;
-            font-size: 1.6rem;
+            font-size: 1.3rem;
             font-weight: bold;
             cursor: pointer;
             animation: surgirbotao 3s 1 forwards;
@@ -59,7 +67,7 @@
             to{
                 height: 35px;
                 width: 60px;
-                font-size: 1.6rem;
+                font-size: 1.3rem;
             }
         }
         footer{
@@ -77,10 +85,16 @@
         footer:hover{
             box-shadow: 0 0 5px rgb(198, 210, 30), 0 0 10px rgb(198, 210, 30), 0 0 20px rgb(198, 210, 30);
         }
-        
+        @media(max-width:413px){
+            .buttons{
+                flex-direction: column;
+            }
+
+        }
     </style>
 </head>
 <body>
+    <header><h1 id="titulo">contador</h1></header>
     <main>
         <div id="enunciado">contagem de cliques: <span id="resposta">0</span></div>
         <div class="buttons">
@@ -90,23 +104,29 @@
             <button onclick="alterarContador(-10)" aria-label="Subtrair 10" title="-10">-10</button>
             <button onclick="alterarContador(100)" aria-label="Adicionar 100" title="+100">+100</button>
             <button onclick="alterarContador(-100)" aria-label="Subtrair 100" title="-100">-100</button>
+            <button onclick="alterarContador(1000)" aria-label="Adicionar 1000" value="+1000">+1000</button>
+            <button onclick="alterarContador(-1000)" aria-label="Subtrair 1000" value="-1000">-1000</button>
             <button onclick="zerarContador()" aria-label="Zerar contador" title="0">&#x21bb;</button>
         </div>
     </main>
 
     <footer id="rodape">&copy;pedrocavalcante</footer>
     <script>
-        let contador = 0
-        let rodape = document.getElementById('rodape')
 
+        let contador = 0//variavel contador
+        let rodape = document.getElementById('rodape')//variavel que pega o id do footer da pagina
+
+        //evento que executa uma function a qual ao clicar leva para o url especificado
         rodape.addEventListener('click', function(){
             location.href = 'https://github.com/Pedrocavalcant'
         })
 
+        //function responsavel por mostrar o valor atual do contador 
         const respostaTela = () => {
             document.getElementById('resposta').textContent = contador
         }
 
+        //function para alterar o valor do contador, tanto para adicionar quanto para subtrair
         const alterarContador = (valor) => {
             if(contador + valor < 0){
                 document.getElementById('resposta').textContent = 'Nao e permitido o contador ficar abaixo de 0'
@@ -116,6 +136,7 @@
             respostaTela()
         }
 
+        //function para zerar o contador
         const zerarContador = () => {
             contador = 0
             respostaTela()
