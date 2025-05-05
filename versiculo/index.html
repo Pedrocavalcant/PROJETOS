@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Versiculo</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: black;
+            color: transparent;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+            height: 100vh;
+        }
+        .container{
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        .box{
+            position: absolute;
+            transform: translate(-50%, -50%) scale(var(--scale));
+            -webkit-text-stroke: 2px aquamarine;
+            font-size: 14rem;
+            font-weight: bold;
+            text-align: center;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(var(--scale));
+            opacity: var(--opacity);
+            filter: blur(var(--blur));
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container"> 
+        <div class="box" style="--scale:1 ; --opacity:1 ; --blur:1 ;">JESUS</div>
+        <div class="box" style="--scale:0.95 ; --opacity:0.95 ; --blur:1px ;">JESUS</div>
+        <div class="box" style="--scale:0.9 ; --opacity:0.9 ; --blur:2px ;">JESUS</div>
+        <div class="box" style="--scale:0.85 ; --opacity:0.85 ; --blur:3px ;">JESUS</div>
+        <div class="box" style="--scale:0.8 ; --opacity:0.8 ; --blur:4px ;">JESUS</div>
+        <div class="box" style="--scale:0.75 ; --opacity:0.75 ; --blur:5px ;">JESUS</div>
+        <div class="box" style="--scale:0.7 ; --opacity:0.7 ; --blur:6px ;">JESUS</div>
+        <div class="box" style="--scale:0.65 ; --opacity:0.65 ; --blur:7px ;">JESUS</div>
+        <div class="box" style="--scale:0.6 ; --opacity:0.6 ; --blur:8px ;">JESUS</div>
+        <div class="box" style="--scale:0.55 ; --opacity:0.55 ; --blur:9px ;">JESUS</div>
+        <div class="box" style="--scale:0.5 ; --opacity:0.5 ; --blur:10px ;">JESUS</div>
+        <div class="box" style="--scale:0.45 ; --opacity:0.45 ; --blur:11px ;">JESUS</div>
+        <div class="box" style="--scale:0.4 ; --opacity:0.4 ; --blur:12px ;">JESUS</div>
+        <div class="box" style="--scale:0.35 ; --opacity:0.35 ; --blur:13px ;">JESUS</div>
+        <div class="box" style="--scale:0.3 ; --opacity:0.3 ; --blur:14px ;">JESUS</div>
+    </div>
+    <script></script>
+</body>
+</html>
