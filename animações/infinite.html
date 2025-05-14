@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infinite</title>
+    <style>
+        *, *::before, *::after{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: black;
+            color: transparent;
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+            align-items: center;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .container{
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .infinite{
+            -webkit-text-stroke: 2px red;
+            font-size: 7rem;
+            font-weight: bold;
+            filter:  blur(var(--blur));
+            animation: sizemoving 3s infinite ease-in-out;
+            position: absolute;
+            transform: translate(-50%, -50%) scale(var(--scale));
+            top: 50%;
+            left: 50%;
+            opacity: var(--opacity);
+            text-align: center;
+        }
+        @keyframes sizemoving {
+            from{
+                transform:translate(-50%, -50%) scale(0.6); 
+            }
+            50%{
+                transform:translate(-50%, -50%) scale(1);
+            }
+            to{
+                transform:translate(-50%, -50%) scale(0.6);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="infinite" style="--scale: 1 --opacity:1 ; --blur: ;">Pedro</div>
+        <div class="infinite" style="--scale: 0.95 --opacity:0.95 ; --blur: ;">Pedro</div>
+        <div class="infinite" style="--scale: 0.9 --opacity:0.9 ; --blur: ;">Pedro</div>
+        <div class="infinite" style="--scale: 0.85 --opacity:0.85 ; --blur: ;">Pedro</div>
+        <div class="infinite" style="--scale: 0.8 --opacity:0.8 ; --blur: ;">Pedro</div>
+        <div class="infinite" style="--scale: 0.75 --opacity:0.75 ; --blur: ;">Pedro</div>
+        <div class="infinite" style="--scale: 0.7 --opacity:0.7 ; --blur: ;">Pedro</div>
+        <div class="infinite" style="--scale: 0.65 --opacity:0.65 ; --blur: ;">Pedro</div>
+        <div class="infinite" style="--scale: 0.6 --opacity:0.6 ; --blur: ;">Pedro</div>
+        <div class="infinite" style="--scale: 0.55 --opacity:0.55 ; --blur: ;">Pedro</div>
+        <div class="infinite" style="--scale: 0.5 --opacity:0.5 ; --blur: ;">Pedro</div>
+    </div>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pedro Vortex</title>
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      perspective: 1000px;
+    }
+
+    .infinite {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(var(--scale)) rotate(var(--rotate));
+      font-size: 7rem;
+      font-weight: bold;
+      color: transparent;
+      -webkit-text-stroke: 2px red;
+      opacity: var(--opacity);
+      filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.5)) blur(var(--blur));
+      animation: spin 10s linear infinite;
+      transform-origin: center center;
+    }
+
+    @keyframes spin {
+      from {
+        transform: translate(-50%, -50%) scale(var(--scale)) rotate(0deg);
+      }
+      to {
+        transform: translate(-50%, -50%) scale(var(--scale)) rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Camadas de profundidade -->
+    <div class="infinite" style="--scale: 1.2; --opacity: 1; --blur: 0px; --rotate: 0deg;">Pedro</div>
+    <div class="infinite" style="--scale: 1.1; --opacity: 0.9; --blur: 1px; --rotate: 15deg;">Pedro</div>
+    <div class="infinite" style="--scale: 1.0; --opacity: 0.8; --blur: 2px; --rotate: 30deg;">Pedro</div>
+    <div class="infinite" style="--scale: 0.9; --opacity: 0.7; --blur: 3px; --rotate: 45deg;">Pedro</div>
+    <div class="infinite" style="--scale: 0.8; --opacity: 0.6; --blur: 4px; --rotate: 60deg;">Pedro</div>
+    <div class="infinite" style="--scale: 0.7; --opacity: 0.5; --blur: 5px; --rotate: 75deg;">Pedro</div>
+    <div class="infinite" style="--scale: 0.6; --opacity: 0.4; --blur: 6px; --rotate: 90deg;">Pedro</div>
+    <div class="infinite" style="--scale: 0.5; --opacity: 0.3; --blur: 7px; --rotate: 105deg;">Pedro</div>
+    <div class="infinite" style="--scale: 0.4; --opacity: 0.2; --blur: 8px; --rotate: 120deg;">Pedro</div>
+    <div class="infinite" style="--scale: 0.3; --opacity: 0.1; --blur: 9px; --rotate: 135deg;">Pedro</div>
+  </div>
+</body>
+</html>
