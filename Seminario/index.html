@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Seminário</title>
   <style>
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
       padding: 0;
       margin: 0;
       box-sizing: border-box;
@@ -105,8 +108,13 @@
     }
 
     @keyframes shine {
-      0% { left: -100%; }
-      100% { left: 100%; }
+      0% {
+        left: -100%;
+      }
+
+      100% {
+        left: 100%;
+      }
     }
 
     .item.visible:hover {
@@ -116,48 +124,39 @@
       text-shadow: 0 0 4px aqua;
     }
 
-    .erros.visible     { transform: translate(-250px, -200px) scale(1) rotateX(10deg) rotateY(10deg); }
-    .enquadr.visible   { transform: translate(75px, -200px) scale(1) rotateX(10deg) rotateY(-10deg); }
-    .mov.visible       { transform: translate(-75px, 200px) scale(1) rotateX(-10deg); }
-    .sobre.visible     { transform: translate(-350px, 200px) scale(1) rotateY(10deg); }
-    .recom.visible     { transform: translate(200px, 200px) scale(1) rotateY(-10deg); }
+    .erros.visible {
+      transform: translate(-250px, -200px) scale(1) rotateX(10deg) rotateY(10deg);
+    }
+
+    .enquadr.visible {
+      transform: translate(75px, -200px) scale(1) rotateX(10deg) rotateY(-10deg);
+    }
+
+    .mov.visible {
+      transform: translate(-75px, 200px) scale(1) rotateX(-10deg);
+    }
+
+    .sobre.visible {
+      transform: translate(-350px, 200px) scale(1) rotateY(10deg);
+    }
+
+    .recom.visible {
+      transform: translate(200px, 200px) scale(1) rotateY(-10deg);
+    }
   </style>
 </head>
+
 <body>
   <div class="nav-container">
     <div class="central-button" onclick="expandItems()">MENU</div>
-    <div class="item erros">ERROS</div>
-    <div class="item enquadr">ENQUADRAMENTOS</div>
-    <div class="item mov">MOVIMENTOS</div>
-    <div class="item sobre">SOBRE</div>
-    <div class="item recom">RECOMENDAÇÕES</div>
+    <div class="item erros" id="erro">ERROS</div>
+    <div class="item enquadr" id="enquadramento">ENQUADRAMENTOS</div>
+    <div class="item mov" id="movimento">MOVIMENTOS</div>
+    <div class="item sobre" id="sobre">SOBRE</div>
+    <div class="item recom" id="recomendacao">RECOMENDAÇÕES</div>
   </div>
 
-  <script>
-    let expanded = false;
-
-    function expandItems() {
-      expanded = !expanded;
-      const items = document.querySelectorAll('.item');
-
-      items.forEach((item, index) => {
-        setTimeout(() => {
-          if (expanded) {
-            item.classList.add('visible');
-            
-            // Remove classe de brilho completo caso exista
-            item.classList.remove('shine-complete');
-
-            // Após a animação de luz, aplica brilho completo
-            setTimeout(() => {
-              item.classList.add('shine-complete');
-            }, 1200); // tempo da animação de brilho
-          } else {
-            item.classList.remove('visible', 'shine-complete');
-          }
-        }, index * 150); // atraso sequencial
-      });
-    }
-  </script>
+  <script src="index.js"></script>
 </body>
+
 </html>

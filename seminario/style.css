@@ -22,5 +22,8 @@ main{
 }
 
 h1{
-    
+    color: transparent;
+    font-size: 3rem;
+    -webkit-text-stroke: 1px aqua;
+    letter-spacing: 10px;
 }
