@@ -36,3 +36,15 @@ erro.addEventListener('click', function () {
 enquadramento.addEventListener('click', function () {
     window.location.href = 'enquadramentos.html'
 })
+
+movimento.addEventListener('click', function () {
+    window.location.href = 'movimentos.html'
+})
+
+recomendacao.addEventListener('click', function () {
+    window.location.href = 'recomendacoes.html'
+})
+
+sobre.addEventListener('click', function () {
+    window.location.href = 'sobre.html'
+})
