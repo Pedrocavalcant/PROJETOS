@@ -11,4 +11,16 @@
 body {
     background-color: black;
     color: aqua;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+
+main{
+
+}
+
+h1{
+    
 }
