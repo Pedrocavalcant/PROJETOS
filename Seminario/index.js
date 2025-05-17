@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+
     let erro = document.getElementById('erro');
     let enquadramento = document.getElementById('enquadramento');
     let movimento = document.getElementById('movimento');
@@ -45,4 +45,4 @@ document.addEventListener('DOMContentLoaded', () => {
     sobre.addEventListener('click', function () {
         window.location.href = 'sobre.html';
     });
-});
+
