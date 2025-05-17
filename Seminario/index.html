@@ -263,7 +263,30 @@
     <div class="item recom" id="recomendacao">RECOMENDAÇÕES</div>
   </div>
 
-  <script src="index.js"></script>
+  <script>
+    function expandItems() {
+    expanded = !expanded;
+    const items = document.querySelectorAll('.item');
+
+    items.forEach((item, index) => {
+        setTimeout(() => {
+            if (expanded) {
+                item.classList.add('visible');
+
+                // Remove classe de brilho completo caso exista
+                item.classList.remove('shine-complete');
+
+                // Após a animação de luz, aplica brilho completo
+                setTimeout(() => {
+                    item.classList.add('shine-complete');
+                }, 1200); // tempo da animação de brilho
+            } else {
+                item.classList.remove('visible', 'shine-complete');
+            }
+        }, index * 150); // atraso sequencial
+    });
+}
+  </script>
 </body>
 
 </html>
