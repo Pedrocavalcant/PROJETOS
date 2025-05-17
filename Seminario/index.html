@@ -80,7 +80,6 @@
       overflow: hidden;
     }
 
-    /* Inicialmente sem brilho */
     .item::before {
       content: '';
       position: absolute;
@@ -102,7 +101,6 @@
       animation: shine 1.2s forwards;
     }
 
-    /* Após a animação, adiciona brilho completo */
     .item.shine-complete {
       transition: box-shadow 0.5s, text-shadow 0.5s;
       box-shadow: 0 0 4px aqua, 0 0 8px aqua;
@@ -145,6 +143,69 @@
     .recom.visible {
       transform: translate(200px, 200px) scale(1) rotateY(-10deg);
     }
+
+    /* MOBILE RESPONSIVO */
+    @media(max-width: 413px) {
+  body {
+    overflow-y: hidden;
+    position: relative;
+  }
+
+  .nav-container {
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+  }
+
+  .central-button {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 0;
+    z-index: 10;
+  }
+
+  .item {
+    position: absolute;
+    transform: scale(0);
+    opacity: 0;
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+  }
+
+  .item.visible {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+  }
+
+  .item::before {
+    display: none;
+  }
+
+  /* Posicionamento vertical dos itens abaixo do botão MENU */
+  .erros.visible {
+    top: 48%;
+  }
+
+  .enquadr.visible {
+    top: 56%;
+  }
+
+  .mov.visible {
+    top: 64%;
+  }
+
+  .sobre.visible {
+    top: 72%;
+  }
+
+  .recom.visible {
+    top: 80%;
+  }
+}
+
   </style>
 </head>
 

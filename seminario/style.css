@@ -76,4 +76,15 @@ button:hover{
     color: black;
 }
 
+@media(max-width: 413px) {
+    h1{
+        font-size: 2rem;
+        white-space: normal;
+        overflow-wrap: break-word;
+        word-break: break-word;
+    }
 
+    iframe{
+        max-width: 90%;
+    }
+}
