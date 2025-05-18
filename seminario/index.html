@@ -6,59 +6,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Seminário</title>
   <style>
-    *,
-    *::before,
-    *::after {
-      padding: 0;
+    html, body {
       margin: 0;
+      padding: 0;
       box-sizing: border-box;
-    }
-
-    body {
-      background-color: black;
-      height: 100vh;
-      width: 100vw;
+      height: 100%;
+      width: 100%;
       overflow: hidden;
       font-family: sans-serif;
-    }
-
-    /*.nav-container {
-      position: relative;
-      width: 100vw;
-      height: 100vh;
-      perspective: 1000px;
-    }
-
-    .central-button {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
       background-color: black;
-      color: aqua;
-      border: 4px solid aqua;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      font-weight: bold;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 10;
-      transition: background-color 0.4s ease, color 0.4s ease, scale 0.4s ease-in-out;
-      box-shadow: 0 0 4px aqua, 0 0 8px aqua;
-      text-shadow: 0 0 2px aqua, 0 0 4px aqua;
     }
 
-    .central-button:hover {
-      background-color: aqua;
-      color: black;
+    *::before,
+    *::after {
+      box-sizing: inherit;
     }
-
-    .central-button:active {
-      scale: 0.8;
-    }*/
 
     .item {
       position: absolute;
@@ -146,105 +108,86 @@
 
     /* MOBILE RESPONSIVO */
     @media(max-width: 431px) {
-  body {
-    overflow-y: hidden;
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    flex-direction: column;
-    gap: 20px;
-    left: 45%;
-    top: 30%;
-  }
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 20px;
+        height: 100dvh;
+        width: 100vw;
+        overflow: hidden;
+        position: relative;
+      }
 
+      .item {
+        position: static;
+        transform: none;
+        opacity: 1;
+        max-width: 300px;
+        width: 80%;
+        transition: none;
+      }
 
-  .item {
-    position: static;
-    transform: scale(1);
-    opacity: 1;
-    left: 50%;
-    transition: none;
-    max-width: 300px;
-    width: 80%;
-  }
+      .item::before {
+        display: none;
+      }
 
-  .item.visible {
-    opacity: 1;
-    transform: scale(1);
-  }
+      .erros.visible,
+      .enquadr.visible,
+      .mov.visible,
+      .sobre.visible,
+      .recom.visible {
+        transform: none;
+      }
+    }
 
-  .item::before {
-    display: none;
-  }
+    @media(max-width: 915px) {
+      .item {
+        width: 150px;
+        height: 70px;
+        font-size: 0.85rem;
+      }
 
-  .erros.visible,
-  .enquadr.visible,
-  .mov.visible,
-  .sobre.visible,
-  .recom.visible {
-    transform: none;
-  }
+      .erros.visible {
+        top: 30%;
+        left: 30%;
+        transform: translate(-50%, -50%) scale(1) rotateX(8deg) rotateY(8deg);
+      }
 
-}
+      .enquadr.visible {
+        top: 30%;
+        left: 70%;
+        transform: translate(-50%, -50%) scale(1) rotateX(8deg) rotateY(-8deg);
+      }
 
-@media(max-width: 915px) {
-  .central-button {
-    width: 90px;
-    height: 90px;
-    font-size: 0.9rem;
-  }
+      .mov.visible {
+        top: 85%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(1) rotateX(-8deg);
+      }
 
-  .item {
-    width: 150px;
-    height: 70px;
-    font-size: 0.85rem;
-  }
+      .sobre.visible {
+        top: 75%;
+        left: 20%;
+        transform: translate(-50%, -50%) scale(1) rotateY(8deg);
+      }
 
-  .erros.visible {
-    top: 30%;
-    left: 30%;
-    transform: translate(-50%, -50%) scale(1) rotateX(8deg) rotateY(8deg);
-  }
-
-  .enquadr.visible {
-    top: 30%;
-    left: 70%;
-    transform: translate(-50%, -50%) scale(1) rotateX(8deg) rotateY(-8deg);
-  }
-
-  .mov.visible {
-    top: 85%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(1) rotateX(-8deg);
-  }
-
-  .sobre.visible {
-    top: 75%;
-    left: 20%;
-    transform: translate(-50%, -50%) scale(1) rotateY(8deg);
-  }
-
-  .recom.visible {
-    top: 75%;
-    left: 80%;
-    transform: translate(-50%, -50%) scale(1) rotateY(-8deg);
-  }
-}
-
+      .recom.visible {
+        top: 75%;
+        left: 80%;
+        transform: translate(-50%, -50%) scale(1) rotateY(-8deg);
+      }
+    }
   </style>
 </head>
 
 <body>
-  <!--<div class="nav-container">-->
-    <!--<div class="central-button" onclick="expandItems()">MENU</div>-->
-    <div class="item erros visible" id="erro">ERROS</div>
-    <div class="item enquadr visible" id="enquadramento">ENQUADRAMENTOS</div>
-    <div class="item mov visible" id="movimento">MOVIMENTOS</div>
-    <div class="item sobre visible" id="sobre">SOBRE</div>
-    <div class="item recom visible" id="recomendacao">RECOMENDAÇÕES</div>
-  <!--</div>-->
+  <div class="item erros visible" id="erro">ERROS</div>
+  <div class="item enquadr visible" id="enquadramento">ENQUADRAMENTOS</div>
+  <div class="item mov visible" id="movimento">MOVIMENTOS</div>
+  <div class="item sobre visible" id="sobre">SOBRE</div>
+  <div class="item recom visible" id="recomendacao">RECOMENDAÇÕES</div>
 
   <script src="main.js"></script>
 </body>
