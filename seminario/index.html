@@ -25,7 +25,7 @@
     }
 
     .item {
-      position: absolute;
+      align-self: center;
       width: 170px;
       height: 80px;
       background-color: black;
@@ -34,15 +34,11 @@
       justify-content: center;
       align-items: center;
       border: 2px solid white;
-      border-radius: 10px;
-      transform: translate(-50%, -50%) scale(0);
+      border-radius: 45px;
       transition: transform 0.5s ease, opacity 0.5s ease;
       opacity: 0;
       font-weight: bold;
-      top: 50%;
-      left: 50%;
       overflow: hidden;
-      margin: 0 auto 0 auto;
     }
 
     .item::before {
@@ -111,7 +107,7 @@
 
     /* MOBILE RESPONSIVO */
     @media(max-width: 431px) {
-      body {
+      .container {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -121,17 +117,13 @@
         /* Usa a altura da viewport inteira */
         width: 100%;
         overflow: hidden;
-        position: absolute;
-        left: 30%;
       }
 
 
       .item {
-        position: static;
         transform: none;
         opacity: 1;
         max-width: 300px;
-        width: 80%;
         transition: none;
       }
 
@@ -148,7 +140,18 @@
       }
     }
 
+    .container{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    
     @media(max-width: 932px) {
+      .container {
+        gap: 20px;
+      }
+
       .item {
         width: 150px;
         height: 70px;
@@ -158,42 +161,44 @@
       .erros.visible {
         top: 30%;
         left: 29%;
-        transform: translate(-50%, -50%) scale(1) rotateX(8deg) rotateY(8deg);
+        transform: scale(1) rotateX(8deg) rotateY(8deg);
       }
 
       .enquadr.visible {
         top: 30%;
         left: 71%;
-        transform: translate(-50%, -50%) scale(1) rotateX(8deg) rotateY(-8deg);
+        transform: scale(1) rotateX(8deg) rotateY(-8deg);
       }
 
       .mov.visible {
         top: 30%;
         left: 50%;
-        transform: translate(-50%, -50%) scale(1) rotateX(-8deg);
+        transform: scale(1) rotateX(-8deg);
       }
 
       .sobre.visible {
         top: 65%;
         left: 39%;
-        transform: translate(-50%, -50%) scale(1) rotateY(8deg);
+        transform: scale(1) rotateY(8deg);
       }
 
       .recom.visible {
         top: 65%;
         left: 61%;
-        transform: translate(-50%, -50%) scale(1) rotateY(-8deg);
+        transform: scale(1) rotateY(-8deg);
       }
     }
   </style>
 </head>
 
 <body>
-  <div class="item erros visible" id="erro">ERROS</div>
-  <div class="item enquadr visible" id="enquadramento">ENQUADRAMENTOS</div>
-  <div class="item mov visible" id="movimento">MOVIMENTOS</div>
-  <div class="item sobre visible" id="sobre">SOBRE</div>
-  <div class="item recom visible" id="recomendacao">RECOMENDAÇÕES</div>
+  <div class="container">
+    <div class="item erros visible" id="erro">ERROS</div>
+    <div class="item enquadr visible" id="enquadramento">ENQUADRAMENTOS</div>
+    <div class="item mov visible" id="movimento">MOVIMENTOS</div>
+    <div class="item sobre visible" id="sobre">SOBRE</div>
+    <div class="item recom visible" id="recomendacao">RECOMENDAÇÕES</div>
+  </div>
 
   <script src="main.js"></script>
 </body>
