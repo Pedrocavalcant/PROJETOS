@@ -1,10 +1,11 @@
-
+document.addEventListener('DOMContentLoaded', function load() {
     let erro = document.getElementById('erro');
     let enquadramento = document.getElementById('enquadramento');
     let movimento = document.getElementById('movimento');
     let sobre = document.getElementById('sobre');
     let recomendacao = document.getElementById('recomendacao');
     let expanded = false;
+    });
 
     function expandItems() {
         expanded = !expanded;
@@ -24,6 +25,7 @@
                 }
             }, index * 150);
         });
+        load()
     }
 
     erro.addEventListener('click', function () {
