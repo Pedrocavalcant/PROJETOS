@@ -4,6 +4,7 @@
     let movimento = document.getElementById('movimento');
     let sobre = document.getElementById('sobre');
     let recomendacao = document.getElementById('recomendacao');
+    let montagem = document.getElementById('mont')
     let expanded = false;
 
     /*function expandItems() {
@@ -53,4 +54,8 @@
     sobre.addEventListener('click', function () {
         window.location.href = 'sobre.html';
     });
+
+    montagem.addEventListener('click', () => {
+        window.location.href = 'montagem.html'
+    })
 
