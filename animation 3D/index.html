@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation 3D</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: black;
+        }
+        span{
+            position: absolute;
+            top: 49%;
+            left: 48.95%;
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .container{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 70vh;
+            width: 70vw;
+            background-color: transparent;
+            border: 2px solid blue;
+            border-radius: 50%;
+            
+        }
+        .one,.two,.three, .for{
+            height: 80px;
+            width: 400px;
+            background-color: transparent;
+            position: absolute;
+            top: 42%;
+            left: 33%;
+            border-radius: 100px;
+            border: 4px solid blue;
+            animation: rotating 15s 1 forwards ;
+        }
+        .one{
+            rotate: 45deg;
+        }
+        .two{
+            rotate: 180deg;
+            color: white;
+            text-align: center;
+        }
+        .three{
+            rotate: 270deg;
+        }
+        .for{
+            rotate: 315deg;
+        }
+        @keyframes rotating{
+            from{
+                transform: translate(-50%, -50%) rotateX(0deg)
+            }
+            100%{
+                transform: translate(0%, 0%) rotateX(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <span>Me ama</span>
+    <div class="container">
+        <div class="one"></div>
+        <div class="two"></div>
+        <div class="three"></div>
+        <div class="for"></div>
+    </div>
+</body>
+</html>
