@@ -31,7 +31,7 @@
             width: 70vw;
             background-color: transparent;
             border-radius: 50%;
-            animation: bordersurger  4s 1 forwards;
+            animation: bordersurger  4s 1 forwards, circular 6s infinite ease-in-out;
             animation-delay: 11s;
         }
         .one,.two,.three, .for{
@@ -43,7 +43,7 @@
             left: 33%;
             border-radius: 100px;
             border: 4px solid blue;
-            animation: rotating 15s 1 forwards ;
+            animation: rotating 10s infinite forwards ;
         }
         .one{
             rotate: 45deg;
@@ -61,10 +61,10 @@
         }
         @keyframes rotating{
             from{
-                transform: translate(-50%, -50%) rotateX(0deg)
+                transform: rotateY(0deg)
             }
             100%{
-                transform: translate(0%, 0%) rotateX(360deg);
+                transform: rotateY(360deg);
             }
         }
         @keyframes bordersurger{
