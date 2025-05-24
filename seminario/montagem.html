@@ -5,13 +5,87 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-    <STYle>
-        h1{
-            color: red;
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
         }
-    </STYle>
+        nav{
+            display: flex;
+            gap: 15px;
+            border: 2px solid white;
+           justify-content: center;
+           height: 50px;
+           align-items: center;
+           width: 200px;
+           border-radius: 25px;
+           font-weight: bold;
+           font-size: 1rem;
+           z-index: 1;
+        }
+        .cam{
+            cursor: pointer;
+            transition: 0.2s all;
+        }
+        .cam:hover{
+            color: black;
+            text-shadow: 0 0 2px white, 0 0 4px white, 0 0 8px white;
+            text-decoration: underline;
+        }
+        .border{
+            height: 50px;
+            width: 200px;
+            border: 1px  solid white ;
+            border-radius: 25px;
+            z-index: -1;
+            position: absolute;
+            animation: borderani 5s infinite ease-in-out;
+        }
+        .dois{
+            animation-delay: 1s;
+        }
+        .tres{
+            animation-delay: 1.5s;
+        }
+        .quatro{
+            animation-delay: 2s;
+        }
+        .cinco{
+            animation-delay: 2.5s;
+        }
+        .seis{
+            animation-delay: 3s;
+        }
+        .sete{
+            animation-delay: 3.5s;
+        }
+        .oito{
+            animation-delay: 4s;
+        }
+        @keyframes borderani{
+            from{
+                transform: rotate(0deg)
+            }
+            to{
+                transform:rotate(360deg)
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>CONTEÚDO INDISPONÍVEL</h1>
+    <nav>
+        <div class="cam" id="central">Central</div>
+        <div class="cam" id="fixa">Fixa</div>
+        <div class="cam" id="grua"> Grua</div>
+    </nav>
+    <div class="border"></div>
+    <div class="border dois"></div>
+    <div class="border tres"></div>
+    <div class="border quatro"></div>
+    <div class="border cinco"></div>
+    <div class="border seis"></div>
+    <div class="border sete"></div>
+    <div class="border oito"></div>
 </body>
 </html>
