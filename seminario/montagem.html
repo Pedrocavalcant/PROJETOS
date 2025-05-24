@@ -1,49 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        *{
+        * {
             padding: 0;
             margin: 0;
             box-sizing: border-box;
         }
-        nav{
+
+        nav {
             display: flex;
             gap: 15px;
-            border: 2px solid white;
-           justify-content: center;
-           height: 50px;
-           align-items: center;
-           width: 200px;
-           border-radius: 25px;
-           font-weight: bold;
-           font-size: 1rem;
-           z-index: 1;
+            justify-content: center;
+            height: 50px;
+            align-items: center;
+            width: 200px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 1rem;
+            z-index: 1;
+            background-color: black;
+            position: relative;
         }
-        .cam{
+
+        .cam {
             cursor: pointer;
             transition: 0.2s all;
         }
-        .cam:hover{
+
+        .cam:hover {
             color: black;
             text-shadow: 0 0 2px white, 0 0 4px white, 0 0 8px white;
             text-decoration: underline;
             scale: 1.1;
         }
         .border{
-            height: 50px;
             width: 200px;
-            border: 1px  solid white ;
+            height: 50px;
+            background: linear-gradient(45deg,transparent 90%, blue);
             border-radius: 25px;
-            z-index: -1;
             position: absolute;
-            animation: borderani 5s infinite ease-in-out;
+            z-index: 2;
+            padding: 10px;
+            animation: borderanimation 3s infinite ease-in-out;
         }
-        .dois{
+
+        @keyframes borderanimation{
+            from{
+                background-color: linear-gradient(0deg, transparent 90%, blue);
+            }
+            to{
+                background-color: linear-gradient(360deg, transparent 90%, blue);
+            }
+        }
+
+
+        /*.dois{
             animation-delay: 1s;
         }
         .tres{
@@ -71,9 +88,10 @@
             to{
                 transform:rotate(360deg)
             }
-        }
+        }*/
     </style>
 </head>
+
 <body>
     <nav>
         <div class="cam" id="central">Central</div>
@@ -81,12 +99,13 @@
         <div class="cam" id="grua"> Grua</div>
     </nav>
     <div class="border"></div>
-    <div class="border dois"></div>
+    <!--<div class="border dois"></div>
     <div class="border tres"></div>
     <div class="border quatro"></div>
     <div class="border cinco"></div>
     <div class="border seis"></div>
     <div class="border sete"></div>
-    <div class="border oito"></div>
+    <div class="border oito"></div>-->
 </body>
+
 </html>
