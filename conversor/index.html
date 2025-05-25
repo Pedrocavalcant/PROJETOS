@@ -23,11 +23,13 @@
 
         h1 {
             text-transform: uppercase;
-            letter-spacing: 8px;
+            letter-spacing: 15px;
+            padding: 25px;
+            font-size: 2.1rem;
         }
 
         section {
-            height: 600px;
+            height: 500px;
             width: 500px;
             background-color: rgb(44, 104, 132);
             display: flex;
@@ -36,17 +38,24 @@
             align-items: center;
             gap: 20px;
             border-radius: 20px;
+            box-shadow: 0 0 10px white inset, 0 0 10px white;
+            opacity: 0.9;
+            scale: 0.9;
         }
 
         label {
             font-weight: bold;
-            letter-spacing: 0.5px;
+            letter-spacing: 1.5px;
         }
 
         input {
             border-radius: 5px;
             border: none;
             padding: 6px;
+        }
+        select{
+            border-radius: 5px;
+            border: none;
         }
 
         #converter {
@@ -62,26 +71,44 @@
         <h1>conversor</h1>
         <label>Valor: <input type="number" id="number" placeholder="valor"></label>
         <label for="">De:
-            <select name="" id="">
+            <select name="" id="recebendo">
                 <option value=""></option>
+                <option value="EUA">EUA</option>
+                <option value="BRASIL">BRASIL</option>
             </select>
         </label>
         <label for="">Para:
-            <select name="" id="">
+            <select name="" id="saindo">
                 <option value=""></option>
+                <option value="EUA">EUA</option>
+                <option value="BRASIL">BRASIL</option>
             </select>
         </label>
-        <label><input type="button" value="Converter" id="converter"></label>
+        <input type="button" value="Converter" id="converter">
         <span id="resposta"></span>
     </section>
     <script>
         document.getElementById('converter').addEventListener('click', function () {
             const valor = parseFloat(document.getElementById('number').value)
             const resposta = document.getElementById('resposta')
+            const de = document.getElementById('recebendo').value
+            const para = document.getElementById('saindo').value
 
-            if (!isNaN(valor) && valor > 0) {
-                const convertido = valor / 5.65380
+            if (!isNaN(valor) && valor > 0 && de !== '' && para !== '') {
+
+                if(de === para){
+                    resposta.textContent = 'Selecione paises diferente no de e no para, para que possa ser feita a conversao'
+                    return
+                }
+
+                if(de === 'BRASIL' && para === 'EUA'){
+                let convertido = valor / 5.65380
                 resposta.textContent = `O real equivale a ${convertido.toFixed(3)} em Dolar`
+            } else if(de === 'EUA' && para === 'BRASIL'){
+                let convertido = valor * 5.65380
+                resposta.textContent = ``
+            }
+
             } else {
                 resposta.textContent = 'Digite um valor valido'
             }
