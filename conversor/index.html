@@ -63,6 +63,9 @@
             letter-spacing: 2px;
             text-transform: uppercase;
         }
+        span{
+            font-size: 1.05rem;
+        }
     </style>
 </head>
 
@@ -74,14 +77,22 @@
             <select name="" id="recebendo">
                 <option value=""></option>
                 <option value="EUA">EUA</option>
-                <option value="BRASIL">BRASIL</option>
+                <option value="BRA">BRA</option>
+                <option value="JPN">JPN</option>
+                <option value="FRA">FRA</option>
+                <option value="ESP">ESP</option>
+                <option value="ARG">ARG</option>
             </select>
         </label>
         <label for="">Para:
             <select name="" id="saindo">
                 <option value=""></option>
                 <option value="EUA">EUA</option>
-                <option value="BRASIL">BRASIL</option>
+                <option value="BRA">BRA</option>
+                <option value="JPN">JPN</option>
+                <option value="FRA">FRA</option>
+                <option value="ESP">ESP</option>
+                <option value="ARG">ARG</option>
             </select>
         </label>
         <input type="button" value="Converter" id="converter">
@@ -103,10 +114,22 @@
 
                 if(de === 'BRASIL' && para === 'EUA'){
                 let convertido = valor / 5.65380
-                resposta.textContent = `O real equivale a ${convertido.toFixed(3)} em Dolar`
+                resposta.textContent = `O real equivale a R$ ${convertido.toFixed(2)}`
             } else if(de === 'EUA' && para === 'BRASIL'){
                 let convertido = valor * 5.65380
-                resposta.textContent = ``
+                resposta.textContent = `O Dolar equivale a $ ${convertido.toFixed(2)} `
+            } else if(de === 'JPN' && para === 'EUA') {
+                let convertido = valor / 142.65458
+                resposta.textContent = `O iene equivale a Y ${convertido.toFixed(2)}`
+            } else if(de === 'EUA' && para === 'JPN') {
+                let convertido = valor * 142.65458
+                resposta.textContent = `O dolar equivale a R$ ${convertido.toFixed(2)}`
+            } else if(de === 'FRA' && para === 'EUA') {
+                let convertido = valor * 1.1395049 
+                resposta.textContent = `O euro equivale a $ E$ ${convertido.toFixed(2)}`
+            } else if(de === 'EUA' && para === 'FRA') {
+                let convertido = valor / 1.1395049
+                resposta.textContent = `O dolar equivale a R$ ${convertido.toFixed(2)}`
             }
 
             } else {
