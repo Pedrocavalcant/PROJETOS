@@ -142,7 +142,8 @@
       }
 
       const convertido = valor * taxa;
-      resposta.textContent = `${valor.toFixed(2)} ${de} equivalem a ${convertido.toFixed(2)} ${para}.`;
+      resposta.textContent = `${valor.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ${de} equivalem a ${convertido.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ${para}.`;
+
     });
   </script>
 </body>
