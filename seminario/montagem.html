@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        nav {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            height: 50px;
+            align-items: center;
+            width: 200px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 1rem;
+            z-index: 1;
+            background-color: black;
+            position: relative;
+        }
+
+        .cam {
+            cursor: pointer;
+            transition: 0.2s all;
+        }
+
+        .cam:hover {
+            color: black;
+            text-shadow: 0 0 2px white, 0 0 4px white, 0 0 8px white;
+            text-decoration: underline;
+            scale: 1.1;
+        }
+        .border{
+            width: 200px;
+            height: 50px;
+            background: linear-gradient(45deg,transparent 90%, blue);
+            border-radius: 25px;
+            position: absolute;
+            z-index: 2;
+            padding: 10px;
+            animation: borderanimation 3s infinite ease-in-out;
+        }
+
+        @keyframes borderanimation{
+            from{
+                background-color: linear-gradient(0deg, transparent 90%, blue);
+            }
+            to{
+                background-color: linear-gradient(360deg, transparent 90%, blue);
+            }
+        }
+
+
+        /*.dois{
+            animation-delay: 1s;
+        }
+        .tres{
+            animation-delay: 1.5s;
+        }
+        .quatro{
+            animation-delay: 2s;
+        }
+        .cinco{
+            animation-delay: 2.5s;
+        }
+        .seis{
+            animation-delay: 3s;
+        }
+        .sete{
+            animation-delay: 3.5s;
+        }
+        .oito{
+            animation-delay: 4s;
+        }
+        @keyframes borderani{
+            from{
+                transform: rotate(0deg)
+            }
+            to{
+                transform:rotate(360deg)
+            }
+        }*/
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="cam" id="central">Central</div>
+        <div class="cam" id="fixa">Fixa</div>
+        <div class="cam" id="grua"> Grua</div>
+    </nav>
+    <div class="border"></div>
+    <!--<div class="border dois"></div>
+    <div class="border tres"></div>
+    <div class="border quatro"></div>
+    <div class="border cinco"></div>
+    <div class="border seis"></div>
+    <div class="border sete"></div>
+    <div class="border oito"></div>-->
+</body>
+
+</html>

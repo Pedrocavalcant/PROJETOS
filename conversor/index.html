@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: black;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1 {
+            text-transform: uppercase;
+            letter-spacing: 15px;
+            padding: 25px;
+            font-size: 2.1rem;
+        }
+
+        section {
+            height: 500px;
+            width: 500px;
+            background-color: rgb(44, 104, 132);
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            border-radius: 20px;
+            box-shadow: 0 0 10px white inset, 0 0 10px white;
+            opacity: 0.9;
+            scale: 0.9;
+        }
+
+        label {
+            font-weight: bold;
+            letter-spacing: 1.5px;
+        }
+
+        input {
+            border-radius: 5px;
+            border: none;
+            padding: 6px;
+        }
+        select{
+            border-radius: 5px;
+            border: none;
+        }
+
+        #converter {
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        span{
+            font-size: 1.05rem;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <h1>conversor</h1>
+        <label>Valor: <input type="number" id="number" placeholder="valor"></label>
+        <label for="">De:
+            <select name="" id="recebendo">
+                <option value=""></option>
+                <option value="EUA">EUA</option>
+                <option value="BRA">BRA</option>
+                <option value="JPN">JPN</option>
+                <option value="FRA">FRA</option>
+                <option value="ESP">ESP</option>
+                <option value="ARG">ARG</option>
+            </select>
+        </label>
+        <label for="">Para:
+            <select name="" id="saindo">
+                <option value=""></option>
+                <option value="EUA">EUA</option>
+                <option value="BRA">BRA</option>
+                <option value="JPN">JPN</option>
+                <option value="FRA">FRA</option>
+                <option value="ESP">ESP</option>
+                <option value="ARG">ARG</option>
+            </select>
+        </label>
+        <input type="button" value="Converter" id="converter">
+        <span id="resposta"></span>
+    </section>
+    <script>
+        document.getElementById('converter').addEventListener('click', function () {
+            const valor = parseFloat(document.getElementById('number').value)
+            const resposta = document.getElementById('resposta')
+            const de = document.getElementById('recebendo').value
+            const para = document.getElementById('saindo').value
+
+            if (!isNaN(valor) && valor > 0 && de !== '' && para !== '') {
+
+                if(de === para){
+                    resposta.textContent = 'Selecione paises diferente no de e no para, para que possa ser feita a conversao'
+                    return
+                }
+
+                if(de === 'BRASIL' && para === 'EUA'){
+                let convertido = valor / 5.65380
+                resposta.textContent = `O real equivale a R$ ${convertido.toFixed(2)}`
+            } else if(de === 'EUA' && para === 'BRASIL'){
+                let convertido = valor * 5.65380
+                resposta.textContent = `O Dolar equivale a $ ${convertido.toFixed(2)} `
+            } else if(de === 'JPN' && para === 'EUA') {
+                let convertido = valor / 142.65458
+                resposta.textContent = `O iene equivale a Y ${convertido.toFixed(2)}`
+            } else if(de === 'EUA' && para === 'JPN') {
+                let convertido = valor * 142.65458
+                resposta.textContent = `O dolar equivale a R$ ${convertido.toFixed(2)}`
+            } else if(de === 'FRA' && para === 'EUA') {
+                let convertido = valor * 1.1395049 
+                resposta.textContent = `O euro equivale a $ E$ ${convertido.toFixed(2)}`
+            } else if(de === 'EUA' && para === 'FRA') {
+                let convertido = valor / 1.1395049
+                resposta.textContent = `O dolar equivale a R$ ${convertido.toFixed(2)}`
+            }
+
+            } else {
+                resposta.textContent = 'Digite um valor valido'
+            }
+        })
+
+    </script>
+</body>
+
+</html>

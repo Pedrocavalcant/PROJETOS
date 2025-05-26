@@ -7,76 +7,40 @@
   <title>Seminário</title>
   <style>
     *,
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      height: 100%;
+      width: 100%;
+      overflow-x: hidden;
+      font-family: sans-serif;
+      background-color: black;
+    }
+
     *::before,
     *::after {
-      padding: 0;
-      margin: 0;
-      box-sizing: border-box;
+      box-sizing: inherit;
     }
 
-    body {
-      background-color: black;
-      height: 100vh;
-      width: 100vw;
-      overflow: hidden;
-      font-family: sans-serif;
-    }
-
-    .nav-container {
-      position: relative;
-      width: 100vw;
-      height: 100vh;
-      perspective: 1000px;
-    }
-
-    .central-button {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      background-color: black;
-      color: aqua;
-      border: 4px solid aqua;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      font-weight: bold;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 10;
-      transition: background-color 0.4s ease, color 0.4s ease, scale 0.4s ease-in-out;
-      box-shadow: 0 0 4px aqua, 0 0 8px aqua;
-      text-shadow: 0 0 2px aqua, 0 0 4px aqua;
-    }
-
-    .central-button:hover {
-      background-color: aqua;
-      color: black;
-    }
-
-    .central-button:active {
-      scale: 0.8;
+    .container{
+      gap: 20px;
     }
 
     .item {
-      position: absolute;
+      align-self: center;
       width: 170px;
       height: 80px;
       background-color: black;
-      color: aqua;
+      color: white;
       display: flex;
       justify-content: center;
       align-items: center;
-      border: 2px solid aqua;
-      border-radius: 10px;
-      transform: translate(-50%, -50%) scale(0);
-      transition: transform 0.5s ease, opacity 0.5s ease;
+      border: 2px solid white;
+      border-radius: 45px;
       opacity: 0;
       font-weight: bold;
-      top: 50%;
-      left: 50%;
       overflow: hidden;
     }
 
@@ -87,7 +51,7 @@
       left: -100%;
       height: 100%;
       width: 100%;
-      background: linear-gradient(to right, transparent 0%, aqua 50%, transparent 100%);
+      background: linear-gradient(to right, transparent 0%, white 50%, transparent 100%);
       opacity: 0.6;
       transition: none;
     }
@@ -103,8 +67,8 @@
 
     .item.shine-complete {
       transition: box-shadow 0.5s, text-shadow 0.5s;
-      box-shadow: 0 0 4px aqua, 0 0 8px aqua;
-      text-shadow: 0 0 2px aqua, 0 0 4px aqua;
+      box-shadow: 0 0 4px white, 0 0 8px white;
+      text-shadow: 0 0 2px white, 0 0 4px white;
     }
 
     @keyframes shine {
@@ -118,149 +82,131 @@
     }
 
     .item.visible:hover {
-      scale: 1.05;
+      scale: 1.15;
       cursor: pointer;
-      box-shadow: 0 0 4px aqua, 0 0 8px aqua, 0 0 16px aqua;
-      text-shadow: 0 0 4px aqua, 0 0 8px aqua;
+      box-shadow: 0 0 4px white, 0 0 8px white, 0 0 16px white;
+      text-shadow: 0 0 4px white, 0 0 8px white;
     }
 
-    .erros.visible {
-      transform: translate(-250px, -200px) scale(1) rotateX(10deg) rotateY(10deg);
+    .montagem{
+      color: red;
+      border: 2px solid red;
+      text-shadow: 0 0 4px red, 0 0 8px red;
+      box-shadow: 0 0 4px red, 0 0 8px red;
+      height: 80px;
+      width: 170px;
+      border-radius: 45px;
+      display: flex;
+      align-items: center;
+      align-self: center;
+      justify-content: center;
+      font-weight: bold;
+      text-shadow: 0 0 4px red, 0 0 8px red;
+      cursor: pointer;
     }
 
-    .enquadr.visible {
-      transform: translate(75px, -200px) scale(1) rotateX(10deg) rotateY(-10deg);
+    .montagem:hover{
+      scale: 1.15;
+      text-shadow: 0 0 8px red, 0 0 16px red;
+      box-shadow: 0 0 8px red, 0 0 16px red;
     }
 
-    .mov.visible {
-      transform: translate(-75px, 200px) scale(1) rotateX(-10deg);
-    }
 
-    .sobre.visible {
-      transform: translate(-350px, 200px) scale(1) rotateY(10deg);
-    }
-
-    .recom.visible {
-      transform: translate(200px, 200px) scale(1) rotateY(-10deg);
-    }
 
     /* MOBILE RESPONSIVO */
-    @media(max-width: 413px) {
-  body {
-    overflow-y: hidden;
-    position: relative;
-  }
+    @media(max-width: 431px) {
+      .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 20px;
+        min-height: 100vh;
+        /* Usa a altura da viewport inteira */
+        width: 100%;
+        overflow: hidden;
+      }
 
-  .nav-container {
-    height: 100vh;
-    width: 100vw;
-    position: relative;
-  }
 
-  .central-button {
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    transform: translateX(-50%);
-    margin-bottom: 0;
-    z-index: 10;
-  }
+      .item {
+        transform: none;
+        opacity: 1;
+        max-width: 300px;
+        transition: none;
+      }
 
-  .item {
-    position: absolute;
-    transform: scale(0);
-    opacity: 0;
-    left: 50%;
-    transform: translateX(-50%) scale(0);
-    transition: transform 0.5s ease, opacity 0.5s ease;
-  }
+      .item::before {
+        display: none;
+      }
 
-  .item.visible {
-    opacity: 1;
-    transform: translateX(-50%) scale(1);
-  }
+      .erros.visible,
+      .enquadr.visible,
+      .mov.visible,
+      .sobre.visible,
+      .recom.visible {
+        transform: none;
+      }
+    }
 
-  .item::before {
-    display: none;
-  }
+    .container{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    
+    @media(max-width: 932px) {
+      .container {
+        gap: 20px;
+      }
 
-  /* Posicionamento vertical dos itens abaixo do botão MENU */
-  .erros.visible {
-    top: 48%;
-  }
+      .item {
+        width: 150px;
+        height: 70px;
+        font-size: 0.85rem;
+      }
 
-  .enquadr.visible {
-    top: 56%;
-  }
+      .erros.visible {
+        top: 30%;
+        left: 29%;
+        transform: scale(1) rotateX(8deg) rotateY(8deg);
+      }
 
-  .mov.visible {
-    top: 64%;
-  }
+      .enquadr.visible {
+        top: 30%;
+        left: 71%;
+        transform: scale(1) rotateX(8deg) rotateY(-8deg);
+      }
 
-  .sobre.visible {
-    top: 72%;
-  }
+      .mov.visible {
+        top: 30%;
+        left: 50%;
+        transform: scale(1) rotateX(-8deg);
+      }
 
-  .recom.visible {
-    top: 80%;
-  }
-}
+      .sobre.visible {
+        top: 65%;
+        left: 39%;
+        transform: scale(1) rotateY(8deg);
+      }
 
-@media(max-width: 915px) {
-  .central-button {
-    width: 90px;
-    height: 90px;
-    font-size: 0.9rem;
-  }
-
-  .item {
-    width: 150px;
-    height: 70px;
-    font-size: 0.85rem;
-  }
-
-  .erros.visible {
-    top: 30%;
-    left: 30%;
-    transform: translate(-50%, -50%) scale(1) rotateX(8deg) rotateY(8deg);
-  }
-
-  .enquadr.visible {
-    top: 30%;
-    left: 70%;
-    transform: translate(-50%, -50%) scale(1) rotateX(8deg) rotateY(-8deg);
-  }
-
-  .mov.visible {
-    top: 85%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(1) rotateX(-8deg);
-  }
-
-  .sobre.visible {
-    top: 75%;
-    left: 20%;
-    transform: translate(-50%, -50%) scale(1) rotateY(8deg);
-  }
-
-  .recom.visible {
-    top: 75%;
-    left: 80%;
-    transform: translate(-50%, -50%) scale(1) rotateY(-8deg);
-  }
-}
-
+      .recom.visible {
+        top: 65%;
+        left: 61%;
+        transform: scale(1) rotateY(-8deg);
+      }
+    }
   </style>
 </head>
 
 <body>
-  <div class="nav-container">
-    <div class="central-button" onclick="expandItems()">MENU</div>
-    <div class="item erros" id="erro">ERROS</div>
-    <div class="item enquadr" id="enquadramento">ENQUADRAMENTOS</div>
-    <div class="item mov" id="movimento">MOVIMENTOS</div>
-    <div class="item sobre" id="sobre">SOBRE</div>
-    <div class="item recom" id="recomendacao">RECOMENDAÇÕES</div>
+  <div class="container">
+    <div class="item erros visible" id="erro">ERROS</div>
+    <div class="item enquadr visible" id="enquadramento">ENQUADRAMENTOS</div>
+    <div class="item mov visible" id="movimento">MOVIMENTOS</div>
+    <div class="item sobre visible" id="sobre">SOBRE</div>
+    <div class="item recom visible" id="recomendacao">RECOMENDAÇÕES</div>
+    <div class=" montagem visible" id="mont">MONTAGEM</div>
   </div>
 
   <script src="main.js"></script>
