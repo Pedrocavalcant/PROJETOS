@@ -5,6 +5,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Conversor</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <style>
     * {
       padding: 0;
@@ -61,6 +63,9 @@
       text-transform: uppercase;
       letter-spacing: 2px;
       cursor: pointer;
+      padding: 6px 12px;
+      border-radius: 5px;
+      border: none;
     }
 
     #converter {
@@ -106,7 +111,9 @@
       </select>
     </label>
 
-    <input type="button" value="inverter" id="inverter">
+   <button id="inverter" title="inverter moedas">
+   <i class="fas fa-exchange-alt"></i> 
+   </button>
 
     <label>Para:
       <select id="para">
@@ -163,6 +170,15 @@
       resposta.textContent = `${valor.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ${de} equivalem a ${convertido.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ${para}.`;
 
     });
+
+    document.getElementById("inverter").addEventListener("click", function() {
+      let selectDe = document.getElementById("de")
+      let selectPara = document.getElementById("para")
+
+      const temp = selectDe.value
+      selectDe.value = selectPara.value
+      selectPara.value = temp
+    })
   </script>
 </body>
 
