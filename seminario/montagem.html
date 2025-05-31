@@ -15,7 +15,7 @@
 
         nav {
             display: flex;
-            gap: 15px;
+            gap: 25px;
             justify-content: center;
             height: 50px;
             align-items: center;
@@ -26,11 +26,13 @@
             z-index: 1;
             background-color: black;
             position: relative;
+            border: 2px solid white;
         }
 
         .cam {
             cursor: pointer;
-            transition: 0.2s all;
+            transition: 0.3s ease;
+            opacity: 1;
         }
 
         .cam:hover {
@@ -39,25 +41,12 @@
             text-decoration: underline;
             scale: 1.1;
         }
-        .border{
-            width: 200px;
-            height: 50px;
-            background: linear-gradient(45deg,transparent 90%, blue);
-            border-radius: 25px;
-            position: absolute;
-            z-index: 2;
-            padding: 10px;
-            animation: borderanimation 3s infinite ease-in-out;
+
+        nav:hover .cam:not(:hover){
+            opacity: 0.5;
         }
 
-        @keyframes borderanimation{
-            from{
-                background-color: linear-gradient(0deg, transparent 90%, blue);
-            }
-            to{
-                background-color: linear-gradient(360deg, transparent 90%, blue);
-            }
-        }
+        
 
 
         /*.dois{
@@ -98,7 +87,6 @@
         <div class="cam" id="fixa">Fixa</div>
         <div class="cam" id="grua"> Grua</div>
     </nav>
-    <div class="border"></div>
     <!--<div class="border dois"></div>
     <div class="border tres"></div>
     <div class="border quatro"></div>
